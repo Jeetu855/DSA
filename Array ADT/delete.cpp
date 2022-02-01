@@ -5,6 +5,7 @@
 using namespace std;
 // * while deleteting if we delete an element in the middle of an array
 // * we dont leave the space blank,instead we shift all the elements
+
 struct Array
 {
     int A[10];

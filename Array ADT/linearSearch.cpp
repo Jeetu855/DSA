@@ -5,6 +5,9 @@
 using namespace std;
 // * elements should not have a copy or we may get one of the copy
 // *value that we r searching is called key
+
+// *hashing takes constant time but space required is a lot
+// *hasing best when searching something
 struct Array
 {
     int A[10];
@@ -56,6 +59,40 @@ int Delete(struct Array *arr, int index)
     }
 };
 
+int linear_search(struct Array *arr, int x)
+{
+    for (size_t i = 0; i < arr->length; i++)
+    {
+        if (x == arr->A[i])
+        {
+            return i;
+        }
+    }
+    return -1; //invalid index if no match found
+    // *best case O(1);//found elemen at first index
+    // *worst case O(n);//found element at last index
+}
+
+void swap(int *x, int *y)
+{
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int improved_linear_search(struct Array *arr, int key)
+{ //transposition
+    for (size_t i = 0; i < arr->length; i++)
+    {
+        if (key == arr->A[i])
+        {
+            swap(arr->A[i], arr->A[i - 1]); //swap the element we found with the element b4 it
+            // in the array to reduce the time for subsequent searches
+            return i;
+        }
+    }
+}
+
 int main()
 {
     struct Array arr = {{2, 3, 4, 5, 6}, 10, 5};
@@ -67,6 +104,13 @@ int main()
     // cout << Delete(&arr, 0) << endl;
     // cout << "---------------" << endl;
     // Display(arr);
+    // cout << linear_search(&arr, 6);
+    // cout << "\n"
+    //      << linear_search(&arr, 11);
+    // cout << "\n";
+    cout << improved_linear_search(&arr, 5); //index 3
+    cout << "\n";
+    cout << improved_linear_search(&arr, 5); //index 2
 
-        return 0;
+    return 0;
 }

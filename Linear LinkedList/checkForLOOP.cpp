@@ -52,7 +52,9 @@ bool isLoop(struct Node *p)
         q = q->next;
         r = r->next;
         r = r != nullptr ? r->next : r;
-    } while (q && r && q != r);
+    } while (q && r && q != r); //* we use do while loop coz
+    //*initiallly q=r=p so if we use while loop it wont enter the loop
+    // * thats why we use do-while so it changes the condition then goes into loop
     if (q == r)
     {
         return true;

@@ -1,0 +1,3 @@
+
+ last in first out(LIFO )
+ ADT contains data representation and operations on data structure

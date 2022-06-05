@@ -1,0 +1,30 @@
+Queue using single ptr:
+insertion O(1)
+deletion O(n)
+
+Using 2 ptrs:
+when Queue is empty:front==rear==-1
+front pointing b4 first element whereas rear pointing upon last element
+insertion and deletion O(1)
+queue empty:front==rear
+
+if front pointing upon first element then empty cndition is:
+front>rear
+
+full condition:
+rear=size-1
+
+Drawbacks of Queue using Array:
+cannot reuse spaces of deleted elements
+every location can only be used once
+situation hwere Queue is empty as well full at same time
+
+solution so we can reuse space:
+1)resetting pointers
+when queue becomes empty.brinf front and rear to -1
+but this method dosent guarantee reusing of space
+
+2)circular queue
+front and rear mov circularly
+front and rear start from 0;
+insertion and deletion O(1):best method

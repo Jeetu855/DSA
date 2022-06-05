@@ -26,13 +26,11 @@
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
-      "args": [
-        ""
-      ],
+      "args": [],
       "stopAtEntry": false,
-      "cwd": "d:/DSA/Stack",
+      "cwd": "d:/DSA/Queue",
       "environment": [],
-      "program": "d:/DSA/Stack/build/Debug/outDebug",
+      "program": "d:/DSA/Queue/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "C:/MinGW/bin/gdb.exe",

@@ -3,9 +3,9 @@
 #include <vector>
 
 using namespace std;
-// * fun1 calling fun2
-// *fun2 calling fun3
-// * fun3 calling fun1
+//* fun1 calling fun2
+//* fun2 calling fun3
+//* fun3 calling fun1
 void fun1(int n);
 void fun2(int n);
 

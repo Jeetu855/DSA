@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
@@ -38,7 +36,7 @@ int it_fib(int n)
 
 int main()
 {
-    cout << fib(6) << endl; //inside the parenthesis is the term number
+    cout << fib(6) << endl; // inside the parenthesis is the term number
     cout << it_fib(6) << endl;
     return 0;
 }

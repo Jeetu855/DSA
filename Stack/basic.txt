@@ -1,3 +1,7 @@
 
  last in first out(LIFO )
  ADT contains data representation and operations on data structure
+
+global vars only created once, in recursion, the functipon that is called again and again, its local variables created 
+again and again but if the variable is static, it is only created once so all the functions will use same value of static variable
+ 

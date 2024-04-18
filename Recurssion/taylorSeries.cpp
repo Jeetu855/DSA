@@ -1,13 +1,11 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
 double taylor(int x, int n)
-{ //x is num n is power
+{ // x is num n is power
     static double p = 1, f = 1;
-    //p is numerator f is denominator
+    // p is numerator f is denominator
     double result{};
     if (n == 0)
     {

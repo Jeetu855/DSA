@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 void fun(int n)
@@ -15,6 +13,6 @@ void fun(int n)
 
 int main()
 {
-    fun(3);
+    fun(3); //* 2^(n-1) number of calls made, Time complexity : O(2^n)
     return 0;
 }

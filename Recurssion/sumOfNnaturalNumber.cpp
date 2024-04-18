@@ -25,7 +25,7 @@ int sum(int n)
     }
     return s;
 }
-// *better to use n(n+1)/2 or simple for loop coz less tike and space
+// *better to use n(n+1)/2 or simple for loop coz less time and space
 
 int main()
 {

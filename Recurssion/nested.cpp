@@ -1,9 +1,7 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
-// recursive function taking recursive function as a parameter
+//* recursive function taking recursive function as a parameter
 
 int fun(int n)
 {

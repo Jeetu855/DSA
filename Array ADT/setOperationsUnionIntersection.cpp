@@ -19,7 +19,7 @@ void Display(struct Array arr)
     cout << "\n";
 };
 
-struct Array *Union(struct Array *arr1, struct Array *arr2) //logic same as merge
+struct Array *Union(struct Array *arr1, struct Array *arr2) // logic same as merge
 {
     int i{}, j{}, k{};
     struct Array *arr3 = new Array();
@@ -33,9 +33,9 @@ struct Array *Union(struct Array *arr1, struct Array *arr2) //logic same as merg
         {
             arr3->A[k++] = arr2->A[j++];
         }
-        else //both r equal case
+        else // both r equal case
         {
-            arr3->A[k++] = arr1->A[i++]; //copy only one element and increment both
+            arr3->A[k++] = arr1->A[i++]; // copy only one element and increment both
             j++;
         }
     }
@@ -53,7 +53,7 @@ struct Array *Union(struct Array *arr1, struct Array *arr2) //logic same as merg
     return arr3;
 }
 
-struct Array *Intersection(struct Array *arr1, struct Array *arr2) //logic same as merge
+struct Array *Intersection(struct Array *arr1, struct Array *arr2) // logic same as merge
 {
     int i{}, j{}, k{};
     struct Array *arr3 = new Array();
@@ -67,7 +67,7 @@ struct Array *Intersection(struct Array *arr1, struct Array *arr2) //logic same 
         {
             j++;
         }
-        else //both r equal case
+        else // both are equal case
         {
             arr3->A[k++] = arr1->A[i++];
             j++;
@@ -80,7 +80,7 @@ struct Array *Intersection(struct Array *arr1, struct Array *arr2) //logic same 
     return arr3;
 }
 
-struct Array *Difference(struct Array *arr1, struct Array *arr2) //logic same as merge
+struct Array *Difference(struct Array *arr1, struct Array *arr2) // logic same as merge
 {
     int i{}, j{}, k{};
     struct Array *arr3 = new Array();
@@ -94,7 +94,7 @@ struct Array *Difference(struct Array *arr1, struct Array *arr2) //logic same as
         {
             j++;
         }
-        else //both equal case
+        else // both equal case
         {
             i++;
             j++;

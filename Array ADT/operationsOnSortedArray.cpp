@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
@@ -55,7 +53,7 @@ void swap(int *x, int *y)
     *y = temp;
 }
 
-void Rearrange(struct Array *arr) //negative elements on left and positive on right
+void Rearrange(struct Array *arr) // negative elements on left and positive on right
 {
     int i{0}, j{arr->length - 1};
     while (i < j)

@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
@@ -20,26 +18,26 @@ void Display(struct Array arr)
 };
 
 void Reverse(struct Array *arr)
-{ //using an auxilarry array
+{ // using an auxilarry array
     int b[10]{};
     for (size_t i = arr->length - 1, j = 0; i >= 0, j < arr->length; i--, j++)
     {
-        b[j] = arr->A[i]; //O(n)
+        b[j] = arr->A[i]; // O(n)
     }
     for (size_t i = 0; i < arr->length; i++)
-        arr->A[i] = b[i]; //O(n)
+        arr->A[i] = b[i]; // O(n)
                           //*total =2n
 }
 
 void Better_Reverse(struct Array *arr)
 {
-    //no auxilaryy array
+    // no auxilaryy array
     for (size_t i = 0, j = arr->length - 1; i < j; i++, j--)
     {
         int temp = arr->A[i];
         arr->A[i] = arr->A[j];
         arr->A[j] = temp;
-    } //O(n)
+    } // O(n)
     // *better as less time
 }
 

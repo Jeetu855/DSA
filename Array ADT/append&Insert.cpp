@@ -19,7 +19,7 @@ void Display(struct Array arr)
 };
 
 void Append(struct Array *arr, int x)
-{ //x is the value we r gonna append
+{ // x is the value we are gonna append
     if (arr->length < arr->size)
     {
         arr->A[arr->length++] = x;
@@ -27,7 +27,7 @@ void Append(struct Array *arr, int x)
 };
 
 void Insert(struct Array *arr, int index, int x)
-{ //index is at which index we wanna put x
+{ // index is at which index we wanna put x
     int i;
     if (index >= 0 && index < arr->length)
     {

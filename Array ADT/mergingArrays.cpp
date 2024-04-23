@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
@@ -18,8 +16,8 @@ void Display(struct Array arr)
         cout << arr.A[i] << " ";
     cout << "\n";
 };
-//merging sorted array
-// result is sorted merged array
+// merging sorted array
+//  result is sorted merged array
 struct Array *Merge(struct Array *arr1, struct Array *arr2)
 {
     int i{}, j{}, k{};
@@ -67,6 +65,6 @@ int main()
     };
     struct Array *arr3;
     arr3 = Merge(&arr1, &arr2);
-    Display(*arr3); //call by value so first derefrence it
+    Display(*arr3); // call by value so first derefrence it
     return 0;
 }

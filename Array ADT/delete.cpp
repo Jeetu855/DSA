@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 // * while deleteting if we delete an element in the middle of an array
@@ -21,7 +19,7 @@ void Display(struct Array arr)
 };
 
 void Append(struct Array *arr, int x)
-{ //x is the value we r gonna append
+{ // x is the value we r gonna append
     if (arr->length < arr->size)
     {
         arr->A[arr->length++] = x;
@@ -29,7 +27,7 @@ void Append(struct Array *arr, int x)
 };
 
 void Insert(struct Array *arr, int index, int x)
-{ //index is at which index we wanna put x
+{ // index is at which index we wanna put x
     int i;
     if (index >= 0 && index < arr->length)
     {
@@ -44,7 +42,7 @@ void Insert(struct Array *arr, int index, int x)
 
 int Delete(struct Array *arr, int index)
 {
-    int x = 0, i; //value that is going to be deleted ,initialised to 0
+    int x = 0, i; // value that is going to be deleted ,initialised to 0
     if (index >= 0 && index < arr->length)
     {
         x = arr->A[index];

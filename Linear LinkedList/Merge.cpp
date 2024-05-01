@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 #include <stdlib.h>
 
@@ -45,7 +44,7 @@ void Display(struct Node *p) // O(n) both space and time
 };
 // we have to use 2 pointers
 //  * third:which will point on first node of merged LL
-//  *last:which will point of last node of mergeD LL
+//  *last:which will point of last node of merged LL
 
 void Merge(struct Node *p, struct Node *q)
 {

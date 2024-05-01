@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 #include <stdlib.h>
 
@@ -16,6 +15,7 @@ void Create(int A[], int n)
 {
     struct Node *last{nullptr}, *t{nullptr};
     first = new Node;
+    last = new Node;
     first->data = A[0];
     first->next = nullptr;
     last = first;
@@ -42,12 +42,24 @@ void Display(struct Node *p) // O(n) both space and time
 
 // *insert before first element
 
-void InsertatFirst(int x) // O(1)
+void InsertatFirst(struct Node **p, int x) // O(1)
 {
+    /* double pointer
+ (**p). This allows the function to modify the actual head
+ pointer stored in the memory location pointed to by p.
+ This is necessary for insertion at the beginning, as
+ the new node becomes the new head.*/
+
+    /*
+    single pointer (*p). This function can only access
+    the data pointed to by the head pointer, not the
+    head pointer itself. Modifying the head pointer
+    within this function would require additional
+    logic to update the pointer stored elsewhere.*/
     struct Node *t = new Node;
     t->data = x;
-    t->next = first;
-    first = t;
+    t->next = *p;
+    *p = t; // modifying the head node itself so need pointer to it
 };
 
 // *inset at a position
@@ -91,7 +103,7 @@ int main()
     int A[]{3, 11, 15, 22};
     Create(A, 4);
     Display(first);
-    // InsertatFirst(1);
+    // InsertatFirst(&first,1);
     // Display(first);
     // InsertatPosition(18, 4);
     // Display(first);

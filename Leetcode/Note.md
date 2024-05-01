@@ -131,3 +131,5 @@ Need to sperately compare each character cannot do it like
 ```c
 c == 'a' ||  'e' ||  'i' ||  'o' ||  'u' // this is wrong
 ```
+
+---

@@ -17,6 +17,7 @@ void Create(int A[], int n)
     int i{};
     struct Node *t, *last; // help to create a new node,is a temporary pointer
     first = new Node;
+    last = new Node;
     first->data = A[0];
     first->next = nullptr;
     last = first;

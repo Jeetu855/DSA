@@ -4,120 +4,101 @@
 
 using namespace std;
 
-struct Node
+void swap(int *a, int *b)
 {
-    int data;
-    struct Node *next;
-};
-
-struct Node *first;
-struct Node *second;
-struct Node *third;
-
-void Create(struct Node **head, int A[], int n)
-{
-    struct Node *last{nullptr}, *t{nullptr};
-    *head = new Node;
-    (*head)->data = A[0];
-    (*head)->next = nullptr;
-    last = (*head);
-
-    for (size_t i = 1; i < n; i++)
-    {
-        t = new Node;
-        t->data = A[i];
-        t->next = nullptr;
-        last->next = t;
-        last = t;
-    }
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
-void Display(struct Node *p)
+void BubbleSort(int A[], int n)
 {
-    while (p)
+    int flag{};
+    for (size_t i = 0; i < n - 1; i++)
     {
-        cout << p->data << "->";
-        p = p->next;
+
+        for (size_t j = 0; j < n - 1 - i; j++)
+        {
+            flag = 0;
+            if (A[j] > A[j + 1])
+            {
+                swap(&A[j + 1], &A[j]);
+                flag = 1;
+            }
+        }
+        if (flag == 0)
+        {
+            cout << "already sorted";
+            break;
+        }
     }
     cout << "\n";
 }
 
-void Merge(struct Node *p, struct Node *q)
+void InsertionSort(int A[], int n)
 {
-    struct Node *last = new Node;
-    third = new Node;
-    if (p->data < q->data)
+    int i{}, j{}, x{};
+    for (i = 1; i < n; i++)
     {
-        third = last = p;
-        p = p->next;
-        last->next = nullptr;
-    }
-    if (p->data > q->data)
-    {
-        third = last = q;
-        q = q->next;
-        last->next = nullptr;
-    }
-    while (p && q)
-    {
-        if (p->data < q->data)
+        j = i - 1;
+        x = A[i];
+        while (j > -1 && A[j] > x)
         {
-
-            last->next = p;
-            last = p;
-            p = p->next;
-            last->next = nullptr;
+            A[j + 1] = A[j];
+            j--;
         }
-        if (p->data > q->data)
-        {
-
-            last->next = q;
-            last = q;
-            q = q->next;
-            last->next = nullptr;
-        }
-    }
-    if (p)
-    {
-        last->next = p;
-        last = p;
-        p = p->next;
-        last->next = nullptr;
-    }
-    if (q)
-    {
-        last->next = q;
-        last = q;
-        q = q->next;
-        last->next = nullptr;
+        A[j + 1] = x;
     }
 }
 
-void Reverse(struct Node *p)
+void SelectionSort(int A[], int n)
 {
-    struct Node *q{nullptr}, *r{nullptr};
-
-    while (p)
+    int i{}, j{}, k{};
+    for (i = 0; i < n - 1; i++)
     {
-        r = q;
-        q = p;
-        p = p->next;
-        q->next = r;
+        for (j = k = i; j < n; j++)
+        {
+            if (A[j] < A[k])
+            {
+                k = j;
+            }
+        }
+        swap(&A[i], &A[k]);
     }
-    third = q;
 }
 
 int main()
 {
-    int A[]{3, 11, 15, 20, 28};
-    int B[]{2, 7, 18, 22, 25};
-    Create(&first, A, 5);
-    Create(&second, B, 5);
-    Display(first);
-    Display(second);
-    Merge(first, second);
-    Display(third);
-    Reverse(third);
-    Display(third);
+    int A[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2}, n = 10;
+    int B[] = {3, 7, 9, 10, 11, 15, 22, 24, 31, 32};
+
+    BubbleSort(A, n);
+    BubbleSort(B, n);
+
+    for (auto x : A)
+    {
+        cout << x << " ";
+    }
+    cout << "\n";
+    for (auto x : B)
+    {
+        cout << x << " ";
+    }
+    cout << "\n";
+
+    int C[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2};
+    InsertionSort(C, 10);
+    for (auto x : C)
+    {
+        cout << x << " ";
+    }
+    cout << "\n";
+    int D[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2};
+    SelectionSort(D, n);
+    for (auto x : D)
+    {
+        cout << x << " ";
+    }
+    cout << "\n";
     return 0;
 }

@@ -46,7 +46,6 @@ int partition(int A[], int l, int h)
 {
     int pivot = A[l];
     int i = l, j = h;
-
     do
     {
         do
@@ -62,27 +61,27 @@ int partition(int A[], int l, int h)
             swap(&A[i], &A[j]);
         }
     } while (i < j);
-    swap(&A[l], &A[j]); // after completion of partitioning, swap pivot with j to put pivot in position
+    swap(&A[l], &A[j]);
     return j;
 }
 
-void Quicksort(int A[], int l, int h)
+void QuickSort(int A[], int l, int h)
 {
-    int j;
-    if (l < h) // check if atleast 2 elements
+    int j{};
+    if (l < h)
     {
-        j = partition(A, l, h); // get the index of pivot, partitioning position
-        Quicksort(A, l, j);     // the last element acts as infinity
-        Quicksort(A, j + 1, h);
+        j = partition(A, l, h);
+        QuickSort(A, l, j);
+        QuickSort(A, j + 1, h);
     }
 }
 
 int main()
 {
 
-    int A[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2, INT32_MAX}, n = 11;
+    int A[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2, INT32_MAX};
 
-    Quicksort(A, 0, 10);
+    QuickSort(A, 0, 10);
 
     for (auto x : A)
     {

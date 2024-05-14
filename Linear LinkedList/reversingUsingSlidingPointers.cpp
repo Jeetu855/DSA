@@ -43,19 +43,32 @@ void Display(struct Node *p) // O(n) both space and time
     cout << "\n";
 };
 
-void SlideReverse(struct Node *p) // O(n)
-{                                 //*this method better
-    struct Node *q{nullptr}, *r{nullptr};
+// void SlideReverse(struct Node *p) // O(n)
+// {                                 //*this method better
+//     struct Node *q{nullptr}, *r{nullptr};
 
-    while (p)
+//     while (p)
+//     {
+//         r = q;
+//         q = p;
+//         p = p->next;
+//         q->next = r;
+//     }
+
+//     first = q;
+// }
+
+void Reverse(struct Node **head)
+{
+    struct Node *q{nullptr}, *r{nullptr}, *current = *head;
+    while (current)
     {
         r = q;
-        q = p;
-        p = p->next;
+        q = current;
+        current = current->next;
         q->next = r;
     }
-
-    first = q;
+    *head = q;
 }
 
 int main()
@@ -63,7 +76,7 @@ int main()
     int A[]{3, 11, 15, 20, 22};
     Create(A, 5);
     Display(first);
-    SlideReverse(first);
+    Reverse(&first);
     Display(first);
     return 0;
 }

@@ -4,137 +4,121 @@
 
 using namespace std;
 
-void swap(int *a, int *b)
+struct Node
 {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+    int data;
+    struct Node *next;
+};
 
-void SelectionSort(int A[], int n)
+struct Node *first;
+struct Node *second;
+struct Node *third;
+
+void Create(struct Node **p, int A[], int n)
 {
-    int i{}, j{}, k{};
-    for (i = 0; i < n - 1; i++)
+    struct Node *last{nullptr}, *t{nullptr};
+    *p = new Node;
+    (*p)->data = A[0];
+    (*p)->next = nullptr;
+    last = (*p);
+    for (size_t i = 1; i < n; i++)
     {
-        for (j = k = i; j < n; j++)
-        {
-            if (A[j] < A[k])
-            {
-                k = j;
-            }
-        }
-        swap(&A[i], &A[k]);
+        t = new Node;
+        t->data = A[i];
+        t->next = nullptr;
+        last->next = t;
+        last = t;
     }
 }
 
-void BubbleSort(int A[], int n)
+void Display(struct Node *p)
 {
-    int flag{};
-    for (size_t i = 0; i < n - 1; i++)
+    while (p)
     {
-        for (size_t j = 0; j < n - 1 - i; j++)
+        cout << p->data << "->";
+        p = p->next;
+    }
+    cout << "\n";
+}
+
+void Reverse(struct Node **head)
+{
+    struct Node *q{nullptr}, *r{nullptr}, *current = *head;
+    while (current)
+    {
+        r = q;
+        q = current;
+        current = current->next;
+        q->next = r;
+    }
+    *head = q;
+}
+
+void Merge(struct Node *p, struct Node *q)
+{
+    struct Node *last = new Node;
+    third = new Node;
+    if (p->data < q->data)
+    {
+        third = last = p;
+        p = p->next;
+        last->next = nullptr;
+    }
+    else
+    {
+        third = last = q;
+        q = q->next;
+        last->next = nullptr;
+    }
+
+    while (p && q)
+    {
+        if (p->data < q->data)
         {
-            flag = 0;
-            if (A[j] > A[j + 1])
-            {
-                swap(&A[j + 1], &A[j]);
-                flag = 1;
-            }
+            last->next = p;
+            last = p;
+            p = p->next;
+            last->next = nullptr;
         }
-        if (flag == 0)
+        else
         {
-            cout << "Sorted\n";
-            break;
+            last->next = q;
+            last = q;
+            q = q->next;
+            last->next = nullptr;
         }
     }
-}
-
-void InsertionSort(int A[], int n)
-{
-    int i{}, j{0}, x{};
-    for (i = 1; i < n; i++)
+    // *if one LL's elements finished but other LL's elements remaining then
+    while (p)
     {
-        j = i - 1;
-        x = A[i];
-        while (j > -1 && A[j] > x)
-        {
-            A[j + 1] = A[j];
-            j--;
-        }
-        A[j + 1] = x;
+        last->next = p;
+        last = p;
+        p = p->next;
+        last->next = nullptr;
     }
-}
-
-int partition(int A[], int l, int h)
-{
-    int pivot = A[l];
-    int i = l, j = h;
-    do
+    while (q)
     {
-        do
-        {
-            i++;
-        } while (A[i] <= pivot);
-        do
-        {
-            j--;
-        } while (A[j] > pivot);
-        if (i < j)
-        {
-            swap(&A[i], &A[j]);
-        }
-    } while (i < j);
-    swap(&A[l], &A[j]);
-    return j;
-}
-
-void QuickSort(int A[], int l, int h)
-{
-    int j{};
-    if (l < h)
-    {
-        j = partition(A, l, h);
-        QuickSort(A, l, j);
-        QuickSort(A, j + 1, h);
+        last->next = q;
+        last = q;
+        q = q->next;
+        last->next = nullptr;
     }
 }
 
 int main()
 {
-    int A[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2}, n = 10;
-    int B[] = {3, 7, 9, 10, 11, 15, 22, 24, 31, 32};
+    int A[]{3, 11, 15, 20, 28};
+    int B[]{2, 7, 18, 22, 25};
+    Create(&first, A, 5);
+    Create(&second, B, 5);
+    Display(first);
+    Display(second);
+    // Reverse(&first);
+    // Reverse(&second);
+    // Display(first);
+    // Display(second);
+    Merge(first, second);
+    Display(third);
 
-    BubbleSort(A, n);
-    BubbleSort(B, n);
-
-    // for (auto x : A)
-    // {
-    //     cout << x << " ";
-    // }
-
-    int C[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2};
-    cout << "\n";
-    SelectionSort(C, n);
-    // for (auto x : C)
-    // {
-    //     cout << x << " ";
-    // }
-
-    int D[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2};
-    cout << "\n";
-    InsertionSort(D, n);
-    // for (auto x : D)
-    // {
-    //     cout << x << " ";
-    // }
-
-    int E[] = {3, 7, 9, 10, 6, 5, 12, 4, 11, 2, INT32_MAX};
-    cout << "\n";
-    QuickSort(E, 0, 10);
-
-    for (auto x : E)
-    {
-        cout << x << " ";
-    }
     return 0;
 }

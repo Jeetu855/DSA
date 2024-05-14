@@ -81,13 +81,19 @@ void Merge(struct Node *p, struct Node *q)
         }
     }
     // *if one LL's elements finished but other LL's elements remaining then
-    if (p)
+    while (p)
     {
         last->next = p;
+        last = p;
+        p = p->next;
+        last->next = nullptr;
     }
-    else
+    while (q)
     {
         last->next = q;
+        last = q;
+        q = q->next;
+        last->next = nullptr;
     }
 }
 

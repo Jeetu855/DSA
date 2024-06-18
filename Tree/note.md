@@ -86,3 +86,64 @@ maximum number of nodes = (m^(h+1) - 1) / (m-1)
 
 number of external nodes = (m - 1) * number of internal nodes + 1
 
+#### Binary Tree Representation
+
+- Array Representation
+- Linked Representation
+
+##### Array Representation
+
+Array indexing start from 1 onwards
+For storing binary tree in array we need 2 things 
+1) All the elements
+2) Relationship between those elements
+
+Elements can be stored in array but how can we maintain the relationship
+The index can help to describe relationsip
+
+| Elements |  A  |  B |   C |   D |   E |   F |   G |
+|----------|-----|----|-----|-----|-----|-----|-----|
+|Index     | 1   |  2 |  3  |   4 |  5  |  6  |  7  |     
+|L-Child   | 2   |  4 |  6  |     |     |     |     |   
+|R-Child   | 3   |  5 |  7  |     |     |     |     |
+
+Left child at 2*x   (x is index of parent)
+Right Child at 2*x + 1 (x is index of parent)
+
+Parent of any node is at floor x/2 (x is index of parent)
+
+Can be Dynamic and can be static
+
+##### Linked Representation of Binary Tree
+
+struct Node{
+    struct Node * lchild;
+    int data;
+    struct Node * rchild;
+};
+
+We dont say linked list representation we say linked representation because tree is non linear data structure
+
+Dynamic cause created in heap
+n nodes then n+1 null pointers(all leaf nodes have 2 null pointers in binary tree)
+
+
+#### Full vs Complete Binary Tree
+
+Full Binary Tree : Binary tree of height 'h' having maximum number of nodes 
+
+Complete Binary Tree : Filled from left to right
+No blank spaces between elements in array representation
+If height is 'h' then till 'h-1' it is full, last level filled left to right
+
+**Full binary tree is always a complete binary tree but not vice-versa**
+
+#### Tree Traversals
+
+Preorder : visit node -> preorder left subtree -> preorder right subtree
+Inorder : inorder left subtree -> visit node -> inorder right sub tree
+Postorder : postorder left subtree -> postorder right subtree -> visit node
+Levelorder : level by level 
+
+
+

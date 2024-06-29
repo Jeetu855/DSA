@@ -24,3 +24,6 @@ To find inorder predecessor, go to left subtree first, then right right right ti
 
 Time to delete : O(logn)
 Modification : O(logn)
+
+We can generate BST if we are given preorder or postorder since the inorder of BST is sorted sequence
+

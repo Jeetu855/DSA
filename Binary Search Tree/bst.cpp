@@ -126,12 +126,15 @@ Node * Delete(Node *p,int key){
         delete p;
         return nullptr;
     }
-
+    // searching for key
     if(p->data<key){
         p->rchild=Delete(p->rchild,key);
     }else if(p->data>key){
         p->lchild=Delete(p->rchild,key);
-    }else{
+    }else{ //when key is found, delete and replace with inorder predecessor or successor
+        // dont blindly replace with inorder predecessor or successor, check height of tree
+        // which subtree height is less, replace from that side of sub tree
+        // delete from subtree having more height
         if(Height(p->lchild) > Height(p->rchild)){
             q=InPre(p->lchild);
             p->data=q->data;

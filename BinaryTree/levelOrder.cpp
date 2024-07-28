@@ -32,7 +32,7 @@ void createTree(){
             q.enqueue(t);
         }
  
-        cout << "Ente value of right child " << p->data << ": " << flush;
+        cout << "Enter value of right child " << p->data << ": " << flush;
         cin >> x;
         if (x != -1){
             t = new Node;

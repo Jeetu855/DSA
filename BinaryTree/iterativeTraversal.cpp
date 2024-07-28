@@ -1,4 +1,4 @@
-#include<iostream>
+
 #include "Queue.h"
 #include "Stack.h"
 
@@ -33,7 +33,7 @@ void createTree(){
             q.enqueue(t);
         }
  
-        cout << "Ente value of right child " << p->data << ": " << flush;
+        cout << "Enter value of right child " << p->data << ": " << flush;
         cin >> x;
         if (x != -1){
             t = new Node;
@@ -56,6 +56,7 @@ void Preorder(Node *p){
 
     while(p || !st.isEmptyStack()){
         if(p){
+            // here we are printing before going to left child
             cout<<p->data<<", ";
             st.Push(p);
             p=p->lchild;
@@ -69,7 +70,7 @@ void Preorder(Node *p){
 
 void Inorder(Node *p){
     Stack st(100);
-
+// here we print before going to right child
     while(p || !st.isEmptyStack()){
         if(p){
             st.Push(p);

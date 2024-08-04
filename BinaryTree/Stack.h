@@ -43,6 +43,7 @@ Node * Stack::Pop(){
     }else{
         x=this->S[this->top--];
     }
+    return x;
 }
 
 int Stack::isEmptyStack(){
